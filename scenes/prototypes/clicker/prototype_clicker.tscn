@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ccufjc1odps4h"]
 
-[ext_resource type="Script" path="res://scripts/prototype_clicker.gd" id="1_qhha0"]
+[ext_resource type="Script" path="res://scenes/prototypes/clicker/prototype_clicker.gd" id="1_qhha0"]
 
 [node name="PrototypeClicker" type="Control" node_paths=PackedStringArray("label")]
 layout_mode = 3
