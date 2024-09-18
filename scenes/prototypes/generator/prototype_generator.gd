@@ -14,8 +14,6 @@ extends Control
 ## Reference to the user interface
 @export var user_interface : UserInterface
 
-## Current amount of stardust in storage.
-var stardust : int = 0
 
 
 ## Initialize the label.
@@ -24,15 +22,18 @@ func _ready() -> void:
 	
 	user_interface.navigation_requested.connect(_on_navigation_request)
 
+## Temporary func to update label
+func _process(_delta: float) -> void:
+	update_label_text()
+
 
 ## Create stardust and store it.
 func create_stardust() -> void:
-	stardust += 1
-	update_label_text()
+	Game.ref.data.stardust += 1
 
 ## Updates the label text to match the current amount of stardust in storage.
 func update_label_text() -> void:
-	label.text = "Stardust : %s" %stardust
+	label.text = "Stardust : %s" %Game.ref.data.stardust
 
 ## Start the timer and disable the button.
 func begin_generating_stardust() -> void:
