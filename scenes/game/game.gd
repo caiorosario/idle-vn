@@ -6,7 +6,6 @@ extends Node
 static var ref : Game
 
 
-
 ## Singleton check.
 func _singleton_check() -> void:
 	if not ref:

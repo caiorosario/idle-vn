@@ -3,8 +3,6 @@ extends Control
 ## A clicker prototype creating stardust.
 
 
-## Reference to the label displaying current amount of stardust.
-@export var label : Label
 ## View reference.
 @export var view : UserInterface.Views
 ## Reference to the user interface
@@ -13,21 +11,15 @@ extends Control
 
 ## Initialize the label at launch.
 func _ready() -> void:
-	update_label_text()
+	visible = false
 	
 	user_interface.navigation_requested.connect(_on_navigation_request)
 
-## Temporary func to update label
-func _process(_delta: float) -> void:
-	update_label_text()
 
 ## Create 1 stardust.
 func create_stardust() -> void:
-	Game.ref.data.stardust += 1
+	HandlerStardust.ref.create_stardust(1)
 
-## Update the text of the label to reflect a change in stardust amount.
-func update_label_text() ->void:
-	label.text = "Stardust : %s" %Game.ref.data.stardust
 
 ## Triggered when the stardust button is pressed
 func _on_button_pressed() -> void:
