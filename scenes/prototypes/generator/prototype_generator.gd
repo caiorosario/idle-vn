@@ -13,7 +13,7 @@ extends Control
 
 
 
-## Initialize the label.
+## Initialize visibility at launch.
 func _ready() -> void:
 	visible = true
 	

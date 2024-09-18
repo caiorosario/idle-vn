@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2b3xd18jvtrp"]
+[gd_scene load_steps=6 format=3 uid="uid://c2b3xd18jvtrp"]
 
 [ext_resource type="PackedScene" uid="uid://0oobwvbw4x7d" path="res://scenes/prototypes/generator/prototype_generator.tscn" id="1_ffc7k"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface.gd" id="1_xh862"]
 [ext_resource type="Script" path="res://scenes/user_interface/stardust_label.gd" id="2_mhp7b"]
 [ext_resource type="PackedScene" uid="uid://ccufjc1odps4h" path="res://scenes/prototypes/clicker/prototype_clicker.tscn" id="3_1dcef"]
+[ext_resource type="PackedScene" uid="uid://bavxo3pfhit6e" path="res://scenes/prototypes/upgrades/prototype_upgrades.tscn" id="5_yejcv"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -56,6 +57,10 @@ layout_mode = 2
 [node name="PrototypeGeneratorLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Prototype Generator"
+
+[node name="PrototypeUpgradesLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Prototype Upgrades"
 
 [node name="PrototypeClickerLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -114,5 +119,12 @@ visible = false
 layout_mode = 1
 user_interface = NodePath("../../..")
 
+[node name="PrototypeUpgrades" parent="HBoxContainer/MainView" node_paths=PackedStringArray("user_interface") instance=ExtResource("5_yejcv")]
+visible = false
+layout_mode = 1
+view = 2
+user_interface = NodePath("../../..")
+
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/PrototypeGeneratorLink" to="." method="_on_prototype_generator_link_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/PrototypeUpgradesLink" to="." method="_on_prototype_upgrades_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/PrototypeClickerLink" to="." method="_on_prototype_clicker_link_pressed"]
