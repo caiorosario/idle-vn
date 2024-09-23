@@ -12,4 +12,10 @@ script = ExtResource("1_sicqj")
 [node name="Stardust" type="Node" parent="Handlers"]
 script = ExtResource("2_u8d7d")
 
+[node name="SaveTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [node name="UserInterface" parent="." instance=ExtResource("2_dxn5i")]
+
+[connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]
