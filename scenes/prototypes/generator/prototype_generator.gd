@@ -1,23 +1,19 @@
 class_name PrototypeGenerator
-extends Control
+extends View
 ## Generator prototype creating stardust every seconds.
+
 
 ## Reference to the button starting the generation.
 @export var button : Button
 ## Reference to the timer.
 @export var timer : Timer
-## View reference.
-@export var view : UserInterface.Views
-## Reference to the user interface
-@export var user_interface : UserInterface
-
 
 
 ## Initialize visibility at launch.
 func _ready() -> void:
+	super()
 	visible = true
-	
-	user_interface.navigation_requested.connect(_on_navigation_request)
+
 
 
 ## Create stardust and store it.
@@ -37,11 +33,3 @@ func _on_button_pressed() -> void:
 ## Triggered when the timer times out.
 func _on_timer_timeout() -> void:
 	create_stardust()
-
-## Watch for navigation requests and react accordingly
-func _on_navigation_request(requested_view : UserInterface.Views) ->void:
-	if requested_view == view:
-		visible = true
-		return
-	
-	visible = false
