@@ -3,6 +3,7 @@ extends Node
 ## Abstract class defining an upgrade.
 
 ## Emitted when the upgrade has leveled up
+@warning_ignore("unused_signal")
 signal leveled_up
 
 ## Level of the upgrade.
